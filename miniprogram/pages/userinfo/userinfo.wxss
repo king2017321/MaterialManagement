@@ -1,0 +1,15 @@
+@import "../../style/guide.wxss";
+.guide .counter {
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+}
+
+.fieldtitle {
+  margin-top: 17rpx;
+  width: 100%;
+  line-height: 34px;
+  font-size: 34rpx;
+  color: #007aff;
+}

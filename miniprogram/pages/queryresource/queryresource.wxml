@@ -1,0 +1,9 @@
+<view class="container">
+    <text class="headline">物资查询与预约</text>
+    <view class="guide" wx:if="{{step === 1}}">
+        <text class="p">请点击下一步，登录到数据库系统中</text>
+        <div class="nav">
+            <button class="next" size="mini" type="default" bindtap="nextStep">下一步</button>
+        </div>
+    </view>
+</view>
