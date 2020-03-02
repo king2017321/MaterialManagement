@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/userinfo/userinfo",
+    "pages/operator/operator",
     "pages/queryresource/queryresource",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",

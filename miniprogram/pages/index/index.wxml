@@ -32,8 +32,8 @@
   </view>
   <!-- 云调用 -->
   <view class="uploader">
-    <navigator url="../openapi/openapi" open-type="navigate" class="uploader-text">
-      <text>云调用</text>
+    <navigator url="../operator/operator" open-type="navigate" class="uploader-text">
+      <text>管理员入口</text>
     </navigator>
   </view>
 </view>
