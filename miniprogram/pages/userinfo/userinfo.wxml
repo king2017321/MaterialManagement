@@ -1,44 +1,38 @@
 <view class="container">
-    <text class="headline">个人信息查询与更新</text>
-    <view class="guide" wx:if="{{step === 1}}">
-        <text class="p">请点击下一步，登录到数据库系统中</text>
-        <div class="nav">
-            <button class="next" size="mini" type="default" bindtap="nextStep">下一步</button>
-        </div>
-    </view>
     <view class="guide" wx:if="{{step === 2 && current != ''}}">
-        <text class="headline">查询个人信息</text>
         <text class="fieldtitle">姓名</text>
-        <text class="p" selectable="false" space="false" decode="false">{{name}}</text>
+        <text class="p" space="false" decode="false">{{name}}</text>
         <text class="fieldtitle">院系</text>
-        <text class="p" selectable="false" space="false" decode="false">{{department}}</text>
+        <text class="p" space="false" decode="false">{{department}}</text>
         <text class="fieldtitle">班级</text>
-        <text class="p" selectable="false" space="false" decode="false">{{class}}</text>
+        <text class="p" space="false" decode="false">{{class}}</text>
         <text class="fieldtitle">单位</text>
-        <text class="p" selectable="false" space="false" decode="false">{{studentunion}}</text>
+        <text class="p" space="false" decode="false">{{studentunion}}</text>
         <text class="fieldtitle">部门</text>
-        <text class="p" selectable="false" space="false" decode="false">{{sector}}</text>
+        <text class="p" space="false" decode="false">{{sector}}</text>
         <text class="fieldtitle">手机</text>
-        <text class="p" selectable="false" space="false" decode="false">{{phone}}</text>
+        <text class="p" space="false" decode="false">{{phone}}</text>
         <text class="fieldtitle">电子邮箱</text>
-        <text class="p" selectable="false" space="false" decode="false">{{email}}</text>
+        <text class="p" space="false" decode="false">{{email}}</text>
         <div class="nav">
             <button class="button" size="mini" type="default" bindtap="goHome">返回</button>
             <button class="next" size="mini" type="default" bindtap="modify">修改</button>
         </div>
     </view>
     <view class="guide" wx:if="{{(step > 1  && current === '') || manual_switch}}">
-        <text class="headline">更改个人信息</text>
         <text class="fieldtitle">姓名</text>
-        <input class="input" size="mini" type="text" bindinput="getUserName" value="{{name}}"></input>
+        <input wx:if="{{current === ''}}" size="mini" type="text" bindinput="getUserName" value="{{name}}"></input>
+        <text wx:else class="p" space="false" decode="false">{{name}}</text>
         <text class="fieldtitle">院系</text>
-        <picker-view indicator-style="height: 34px;" style="width: 100%; height: 34px;" bindchange="getUserDepar">
+        <picker-view wx:if="{{current === ''}}" indicator-style="height: 34px;" style="width: 100%; height: 34px;" bindchange="getUserDepar">
             <picker-view-column>
                 <view wx:for="{{departmentlist}}" style="line-height: 34px">{{item}}</view>
             </picker-view-column>
         </picker-view>
+        <text wx:else class="p" space="false" decode="false">{{department}}</text>
         <text class="fieldtitle">班级</text>
-        <input class="input" size="mini" type="text" bindinput="getUserClass" value="{{class}}"></input>
+        <input wx:if="{{current === ''}}" class="input" size="mini" type="text" bindinput="getUserClass" value="{{class}}"></input>
+        <text wx:else class="p" space="false" decode="false">{{class}}</text>
         <text class="fieldtitle">单位</text>
         <picker-view indicator-style="height: 34px;" style="width: 100%; height: 34px;" bindchange="getUserUnion">
             <picker-view-column>

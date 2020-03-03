@@ -9,7 +9,7 @@ Page({
     data: {
         studentunionlist: studentunions,
         departmentlist: departmentlist,
-        step: 1,
+        step: 2,
         manual_switch: false,
         openid: '',
         current: '',
@@ -31,6 +31,28 @@ Page({
                 openid: app.globalData.openid
             })
         }
+        const db = wx.cloud.database() //从数据库中查询用户信息
+        db.collection('UserInfo').where({
+            _openid: this.data.openid
+        }).get({
+            success: res => {
+                var QueryData
+                QueryData = res.data
+                this.setData({
+                    name: QueryData[0].name,
+                    department: QueryData[0].department,
+                    class: QueryData[0].class,
+                    studentunion: QueryData[0].studentunion,
+                    sector: QueryData[0].sector,
+                    phone: QueryData[0].phone,
+                    email: QueryData[0].email,
+                    current: QueryData[0]._id,
+                    level: QueryData[0].level
+                })
+            },
+            fail: err => {
+            }
+        })
     },
 
     // 数据更新接口
@@ -74,56 +96,6 @@ Page({
     getUserEmail: function (e) {
         this.setData({
             email: e.detail.value
-        })
-    },
-
-    // 查询数据，如果没有查到就提示更新数据
-
-    nextStep: function () {
-        var flag = 1
-        if (!this.data.openid) {
-            wx.cloud.callFunction({
-                name: 'login',
-                data: {},
-                success: res => {
-                    app.globalData.openid = res.result.openid
-                    this.setData({
-                        openid: res.result.openid
-                    })
-                },
-                fail: err => {
-                    this.goHome()
-                    wx.showToast({
-                        icon: 'none',
-                        title: '登陆失败'
-                    })
-                }
-            })
-        }
-        const db = wx.cloud.database() //从数据库中查询用户信息
-        db.collection('UserInfo').where({
-            _openid: this.data.openid
-        }).get({
-            success: res => {
-                var QueryData
-                QueryData = res.data
-                this.setData({
-                    name: QueryData[0].name,
-                    department: QueryData[0].department,
-                    class: QueryData[0].class,
-                    studentunion: QueryData[0].studentunion,
-                    sector: QueryData[0].sector,
-                    phone: QueryData[0].phone,
-                    email: QueryData[0].email,
-                    current: QueryData[0]._id,
-                    level: QueryData[0].level
-                })
-            },
-            fail: err => {
-            }
-        })
-        this.setData({
-            step: this.data.step + 1
         })
     },
 
