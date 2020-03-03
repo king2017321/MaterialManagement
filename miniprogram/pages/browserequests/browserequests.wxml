@@ -1,0 +1,26 @@
+<view class="container">
+    <!-- 查询进行中的请求 -->
+    <view class="uploader">
+        <navigator url="ongoingrequests" open-type="navigate" class="uploader-text">
+            <text>进行中请求</text>
+        </navigator>
+    </view>
+    <!-- 查询已通过的请求 -->
+    <view class="uploader">
+        <navigator url="passedrequests" open-type="navigate" class="uploader-text">
+            <text>已通过请求</text>
+        </navigator>
+    </view>
+    <!-- 查询未通过的请求 -->
+    <view class="uploader">
+        <navigator url="failedrequests" open-type="navigate" class="uploader-text">
+            <text>未通过请求</text>
+        </navigator>
+    </view>
+    <!-- 返回上一页 -->
+    <view class="uploader">
+        <navigator url="../index/index" open-type="navigateBack" class="uploader-text">
+            <text>返回</text>
+        </navigator>
+    </view>
+</view>
