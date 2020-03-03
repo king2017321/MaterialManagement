@@ -31,7 +31,7 @@
     </navigator>
   </view>
   <!-- 云调用 -->
-  <view class="uploader">
+  <view class="uploader" wx:if="{{level>0}}">
     <navigator url="../operator/operator" open-type="navigate" class="uploader-text">
       <text>管理员入口</text>
     </navigator>

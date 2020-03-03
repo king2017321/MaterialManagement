@@ -1,9 +1,44 @@
 const app = getApp();
 
+const studentunions = [
+    "校学生会",
+    "建筑学院学生会",
+    "土木系学生会",
+    "水利系学生会",
+    "环境学院学生会",
+    "机械系学生会",
+    "精仪系学生会",
+    "能动系学生会",
+    "车辆学院学生会",
+    "工业工程学生会",
+    "电机系学生会",
+    "电子系学生会",
+    "计算机系学生会",
+    "自动化系学生会",
+    "微纳电子系学生会",
+    "航院学生会",
+    "工物系学生会",
+    "化工系学生会",
+    "材料学院学生会",
+    "数学系学生会",
+    "物理系学生会",
+    "化学系学生会",
+    "生命学院学生会",
+    "经管学院学生会",
+    "人文学院学生会",
+    "社科学院学生会",
+    "美术学院学生会",
+    "医学院学生会",
+    "药学院学生会",
+    "新雅书院学生会"
+]
+
 Page({
 
     data: {
+        studentunionlist: studentunions,
         step: 1,
+        manual_switch: false,
         openid: '',
         current: '',
         name: '', //用户部门
@@ -13,6 +48,7 @@ Page({
         sector: '',  //用户所在部门
         phone: '', //用户电话
         email: '', //用户邮箱
+        level: 0
     },
 
     // 注册界面
@@ -47,7 +83,7 @@ Page({
 
     getUserUnion: function (e) {
         this.setData({
-            studentunion: e.detail.value
+            studentunion: studentunions[e.detail.value[0]]
         })
     },
 
@@ -107,7 +143,8 @@ Page({
                     sector: QueryData[0].sector,
                     phone: QueryData[0].phone,
                     email: QueryData[0].email,
-                    current: QueryData[0]._id
+                    current: QueryData[0]._id,
+                    level: QueryData[0].level
                 })
             },
             fail: err => {
@@ -135,7 +172,8 @@ Page({
 
     modify: function () {
         this.setData({
-            step: this.data.step + 1
+            step: this.data.step + 1,
+            manual_switch: true
         })
     },
 
@@ -156,7 +194,8 @@ Page({
             class: this.data.class,
             sector: this.data.sector,
             phone: this.data.phone,
-            email: this.data.email
+            email: this.data.email,
+            level: this.data.level
         }
         if (this.data.current) {
             db.collection('UserInfo').doc(this.data.current).update({
@@ -191,5 +230,6 @@ Page({
                 }
             })
         }
+        this.goHome()
     }
 })
