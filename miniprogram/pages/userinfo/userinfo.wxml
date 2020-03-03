@@ -32,7 +32,11 @@
         <text class="fieldtitle">姓名</text>
         <input class="input" size="mini" type="text" bindinput="getUserName" value="{{name}}"></input>
         <text class="fieldtitle">院系</text>
-        <input class="input" size="mini" type="text" bindinput="getUserDepar" value="{{department}}"></input>
+        <picker-view indicator-style="height: 34px;" style="width: 100%; height: 34px;" bindchange="getUserDepar">
+            <picker-view-column>
+                <view wx:for="{{departmentlist}}" style="line-height: 34px">{{item}}</view>
+            </picker-view-column>
+        </picker-view>
         <text class="fieldtitle">班级</text>
         <input class="input" size="mini" type="text" bindinput="getUserClass" value="{{class}}"></input>
         <text class="fieldtitle">单位</text>
@@ -41,13 +45,12 @@
                 <view wx:for="{{studentunionlist}}" style="line-height: 34px">{{item}}</view>
             </picker-view-column>
         </picker-view>
-        <!-- <input class="input" size="mini" type="number" bindinput="getUserUnion" value="{{studentunion}}"></input> -->
         <text class="fieldtitle">部门</text>
-        <input class="input" size="mini" type="number" bindinput="getUserSector" value="{{sector}}"></input>
+        <input class="input" size="mini" type="text" bindinput="getUserSector" value="{{sector}}"></input>
         <text class="fieldtitle">手机</text>
         <input class="input" size="mini" type="number" bindinput="getUserPhone" value="{{phone}}"></input>
         <text class="fieldtitle">电子邮箱</text>
-        <input class="input" size="mini" type="number" bindinput="getUserEmail" value="{{email}}"></input>
+        <input class="input" size="mini" type="text" bindinput="getUserEmail" value="{{email}}"></input>
         <div class="nav">
             <button class="button" size="mini" type="default" bindtap="goHome">返回</button>
             <button class="next" size="mini" type="default" bindtap="commit">确认</button>
