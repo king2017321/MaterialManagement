@@ -13,18 +13,15 @@ Page({
     },
 
     onLoad: function () {
-        if (!wx.cloud) {
-            wx.redirectTo({
-                url: '../chooseLib/chooseLib',
-            })
-            return
-        }
-
-        // 获取用户信息
-    },
-
-    onGetOpenid: function () {
-        // 调用云函数
+        wx.cloud.callFunction({
+            name: 'login',
+            data: {},
+            success: res => {
+                this.setData({ logged: true })
+                wx.showToast({ title: '登录成功' })
+            },
+            fail: err => { wx.showToast({ icon: 'none', title: '登录成功' }) }
+        })
         wx.getSetting({
             success: res => {
                 if (res.authSetting['scope.userInfo']) {
@@ -40,15 +37,6 @@ Page({
                     })
                 }
             }
-        })
-        wx.cloud.callFunction({
-            name: 'login',
-            data: {},
-            success: res => {
-                this.setData({ logged: true })
-                wx.showToast({ title: '登录成功' })
-            },
-            fail: err => { wx.showToast({ icon: 'none', title: '登录成功' }) }
         })
         const db = wx.cloud.database()
         db.collection('UserInfo').where({

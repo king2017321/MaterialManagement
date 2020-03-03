@@ -17,6 +17,12 @@
             <text>请求审核</text>
         </navigator>
     </view>
+    <!-- 物资归还 -->
+    <view class="uploader">
+        <navigator url="resreturning" open-type="navigate" class="uploader-text">
+            <text>物资归还</text>
+        </navigator>
+    </view>
     <!-- 管理权限设定 -->
     <view class="uploader">
         <navigator url="operatorlevel" open-type="navigate" class="uploader-text">
