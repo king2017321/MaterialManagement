@@ -12,6 +12,8 @@
     "pages/browserequests/passedrequests",
     "pages/browserequests/failedrequests",
     "pages/queryresource/queryresource",
+    "pages/queryresource/querysubmit",
+    "pages/queryresource/browser",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",

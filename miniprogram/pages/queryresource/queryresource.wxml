@@ -1,9 +1,17 @@
 <view class="container">
-    <text class="headline">物资查询与预约</text>
-    <view class="guide" wx:if="{{step === 1}}">
-        <text class="p">请点击下一步，登录到数据库系统中</text>
-        <div class="nav">
-            <button class="next" size="mini" type="default" bindtap="nextStep">下一步</button>
-        </div>
+    <view class="uploader">
+        <navigator url="browser" open-type="navigate" class="uploader-text">
+            <text>物资查询</text>
+        </navigator>
+    </view>
+    <view class="uploader">
+        <navigator url="querysubmit" open-type="navigate" class="uploader-text">
+            <text>提交预约</text>
+        </navigator>
+    </view>
+    <view class="uploader">
+        <navigator url="../index/index" open-type="navigateBack" class="uploader-text">
+            <text>返回</text>
+        </navigator>
     </view>
 </view>

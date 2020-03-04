@@ -14,7 +14,7 @@
   </view>
   <!-- 操作数据库 -->
   <view class="uploader">
-    <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
+    <navigator url="../queryresource/queryresource" open-type="navigate" class="uploader-text">
       <text>物资查询与预约</text>
     </navigator>
   </view>
