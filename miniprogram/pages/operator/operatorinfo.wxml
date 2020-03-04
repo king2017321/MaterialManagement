@@ -1,0 +1,15 @@
+<view class="container">
+    <view class="guide">
+        <text class="fieldtitle">姓名</text>
+        <text class="p" space="false" decode="false">{{operatorname}}</text>
+        <text class="fieldtitle">组织</text>
+        <text class="p" space="false" decode="false">{{operatorunion}}</text>
+        <text class="fieldtitle">部门</text>
+        <text class="p" space="false" decode="false">{{operatorsector}}</text>
+        <text class="fieldtitle">权限等级</text>
+        <text class="p" wx:if="{{operatorlevel === 4}}" decode="false">最高权限</text>
+        <text class="p" wx:if="{{operatorlevel >= 3}}" decode="{{false}}">添加、删除与更改其他管理员</text>
+        <text class="p" wx:if="{{operatorlevel >= 2}}" decode="{{false}}">物资登入与登出</text>
+        <text class="p" wx:if="{{operatorlevel >= 1}}" decode="{{false}}">请求审核</text>
+    </view>
+</view>

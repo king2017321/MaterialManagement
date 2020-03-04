@@ -9,7 +9,7 @@ Page({
         takeSession: false,
         requestResult: '',
         username: '点击登录微信',
-        userlevel: 0
+        userlevel: app.globalData.level
     },
 
     onLoad: function () {
@@ -46,6 +46,7 @@ Page({
                 var QueryData
                 QueryData = res.data
                 this.setData({ level: QueryData[0].level })
+                getApp().globalData.level = QueryData[0].level
             },
             fail: err => { }
         })

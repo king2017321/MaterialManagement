@@ -6,27 +6,27 @@
         </navigator>
     </view>
     <!-- 物资管理 -->
-    <view class="uploader">
+    <view class="uploader" wx:if="{{_level >= 2}}">
         <navigator url="resmanagement" open-type="navigate" class="uploader-text">
             <text>物资管理</text>
         </navigator>
     </view>
     <!-- 请求审核 -->
-    <view class="uploader">
+    <view class="uploader" wx:if="{{_level >= 1}}">
         <navigator url="requestcheck" open-type="navigate" class="uploader-text">
             <text>请求审核</text>
         </navigator>
     </view>
     <!-- 物资归还 -->
-    <view class="uploader">
+    <view class="uploader" wx:if="{{_level >= 2}}">
         <navigator url="resreturning" open-type="navigate" class="uploader-text">
             <text>物资归还</text>
         </navigator>
     </view>
     <!-- 管理权限设定 -->
-    <view class="uploader">
+    <view class="uploader" wx:if="{{_level >= 3}}">
         <navigator url="operatorlevel" open-type="navigate" class="uploader-text">
-            <text>管理权限设定</text>
+            <text>用户与成员管理</text>
         </navigator>
     </view>
     <view class="uploader">
